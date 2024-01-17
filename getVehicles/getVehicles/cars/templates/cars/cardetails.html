@@ -1,0 +1,22 @@
+{% extends 'cars/base.html'%}
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col">
+            <img src="{{getCar.car_image}}" class="rounded" height="300px" width="550px">
+        </div>
+        <div class="col">
+            <h1>Car Name : {{getCar.car_name}}</h1>
+            <p>{{getCar.car_desc}}</p>
+            <p>Starting Price : <i>{{getCar.car_price}} Crores</i></p>
+            <p>Max Power : {{getCar.car_max_power}} rpm</p>
+            <p>Top Speed : {{getCar.car_top_speed}} Km/h</p>
+            <a href="{% url 'cars:deleteCar' getCar.id %}" class="btn btn-outline-danger">Delete</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

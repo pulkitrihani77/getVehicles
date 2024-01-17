@@ -1,0 +1,12 @@
+{% extends 'cars/base.html'%}
+{% block body %}
+<div class="container my-4">
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Deleting : {{getCar.car_name}}, Do you wan to Delete ?</h2>
+        <button type="submit" class="btn btn-outline-danger">Confirm</button>
+    </form>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

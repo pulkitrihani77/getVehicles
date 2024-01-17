@@ -1,0 +1,31 @@
+{% extends 'cars/base.html' %}
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+<div class="container my-4" flex="1" padding="20px">
+    <form method="POST">
+        {% csrf_token %}
+        <h1 class="my-4"><strong><i>Login Here...</i></strong></h1>
+        <div class="row">
+            <div class="col-5 mx-auto card text-bg-info p-3" style="width: 20rem;">
+                <div class="card-body">
+                    <h6 class="card-title mb-4"><strong>Already Registered? Login Here</strong></h6>
+                    {% for field in form %}
+                    <h6 class="card-subtitle mb-2 text-dark">{{field.name}}</h6>
+                    <div class="mx-auto mb-2 p-2">{{field}}</div>
+                    {% endfor %}
+                    <button type="submit" class=" my-2 btn btn-dark">Login</button>
+                    <h6 class="my-4">Don't have account? Register below</h6>
+                    <a href="{% url 'register' %}" class="btn btn-warning">Register</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

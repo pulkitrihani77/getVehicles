@@ -1,0 +1,22 @@
+{% extends 'cars/base.html' %}
+{% block body %}
+
+<div class="container" flex="1" padding="20px">
+    <form method=""POST>
+        {% csrf_token %}
+    <h1 class="my-4">Updating Vehicle Info...</h1>
+    <div class="row">
+        <div class="col-5 mx-auto card text-bg-info p-3" style="width: 20rem;">
+            <div class="card-body">
+                <h2 class="card-title mb-4">Update here</h2>
+                {% for field in form %}
+                <h6 class="card-subtitle mb-2 text-dark">{{field.name}}</h6>
+                <div class="mx-auto mb-2 p-2">{{field}}</div>
+                {% endfor %}
+                <button type="submit" class=" my-2 btn btn-dark">AddCar</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}
